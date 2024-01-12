@@ -5,7 +5,7 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y libmysqlclient-dev
+RUN apt-get update && apt-get install -y libmariadb-dev-compat libmariadb-dev
 
 # Copy the current directory contents into the container at /app
 COPY . /app
