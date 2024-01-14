@@ -15,7 +15,7 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG)
 load_dotenv('.env.local')
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/api/*": {"origins": "https://onedayclass-frontend-euu7.vercel.app"}})
 app.secret_key= os.getenv('SECRET_KEY')
 
 #세션 관련 설정 
