@@ -7,17 +7,17 @@ from dbutils.pooled_db import PooledDB
 # .env.local 파일 로드
 load_dotenv('.env.local')
 
-MYSQL_HOST = 'localhost'
-
 POOL = PooledDB(
   creator=pymysql,
   maxconnections=50,
   user=os.getenv('DB_USER'),
   passwd=os.getenv('DB_PASSWORD'),
-  host=MYSQL_HOST,
-  port=3306,
-  database='onedayclass_db',
-  charset='utf8mb4'
+  host=os.getenv('DB_HOST'),
+  port=55710,
+  database=os.getenv('DB_NAME'),
+  charset='utf8mb4',
+  autocommit=True,
+  ssl={'ca': os.getenv('SSL'), 'ssl_mode': 'VERIFY_IDENTITY'}
   )
 
 def conn_mysqldb():
