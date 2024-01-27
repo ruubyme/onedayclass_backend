@@ -1,6 +1,6 @@
 from flask import Flask, redirect, url_for
 from flask_login import LoginManager
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from db_model.mysql import conn_mysqldb
 from control.user_mgmt import User 
 from dotenv import load_dotenv
@@ -51,6 +51,11 @@ def load_user(user_id):
   finally:
     cur.close()
     conn.close()
+    
+@app.route('/api/print')
+@cross_origin()
+def print_hello():
+  return("hello")
 
 
 from routes.login import login_blueprint
