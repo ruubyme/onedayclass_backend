@@ -15,7 +15,7 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG)
 load_dotenv('.env.local')
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://onedayclassbackend-production.up.railway.app"}})
+CORS(app, resources={r"/*": {"origins": "https://onedayclassbackend-production.up.railway.app"}})
 app.secret_key= os.getenv('SECRET_KEY')
 
 #세션 관련 설정 
